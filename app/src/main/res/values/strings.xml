@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Testing UserData</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="input_name_label_text">Name:</string>
+    <string name="input_email_label_text">Email:</string>
+    <string name="input_mobile_label_text">Mobile:</string>
+    <string name="input_bio_label_text">Something about yourself:</string>
+    <string name="input_submit_btn_text">Submit</string>
+    <string name="hint_name">Your Name</string>
+    <string name="hint_email">someone@example.com</string>
+    <string name="hint_mobile">1234567890</string>
+    <string name="hint_bio">A tech geek</string>
+    <string name="input_title_text">Your Information</string>
+    <string name="detail_name_label_text">Name: </string>
+    <string name="detail_email_label_text">Email:</string>
+    <string name="detail_mobile_label_text">Mobile:</string>
+    <string name="detail_bio_label_text">About:</string>
+    <string name="detail_title_text">Your Info</string>
+    <string name="detail_go_back_btn_text">Back</string>
+
+</resources>
