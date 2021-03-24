@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/inputFragment"
         android:name="com.vishalgaur.testinguserdata.InputFragment"
-        android:label="fragment_input"
-        tools:layout="@layout/fragment_input" >
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_input">
         <action
             android:id="@+id/showDetailScreen"
             app:destination="@id/detailFragment" />
@@ -17,8 +17,8 @@
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.vishalgaur.testinguserdata.DetailFragment"
-        android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" >
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_detail">
         <action
             android:id="@+id/goBackToHome"
             app:destination="@id/inputFragment"
