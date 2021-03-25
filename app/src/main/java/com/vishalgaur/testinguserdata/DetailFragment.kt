@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.vishalgaur.testinguserdata.databinding.FragmentDetailBinding
 import com.vishalgaur.testinguserdata.viewModel.DetailViewModel
@@ -33,12 +32,6 @@ class DetailFragment : Fragment() {
             findNavController().navigateUp()
         }
         return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-
     }
 
 }

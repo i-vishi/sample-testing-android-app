@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.vishalgaur.testinguserdata.databinding.FragmentInputBinding
 import com.vishalgaur.testinguserdata.viewModel.DetailViewModel

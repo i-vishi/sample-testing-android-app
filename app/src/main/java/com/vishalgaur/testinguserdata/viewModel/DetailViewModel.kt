@@ -20,9 +20,12 @@ class DetailViewModel : ViewModel() {
 
     fun submitData(name: String, email: String, mob: String, bio: String) {
         _userName.value = name
-        _userEmail.value = email
-        _userPhone.value = mob
+        if (isEmailValid(email)) {
+            _userEmail.value = email
+        }
+        if (isPhoneValid(mob)) {
+            _userPhone.value = mob
+        }
         _userBio.value = bio
     }
-
 }
