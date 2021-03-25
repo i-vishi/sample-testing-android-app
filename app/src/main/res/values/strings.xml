@@ -18,5 +18,6 @@
     <string name="detail_bio_label_text">About:</string>
     <string name="detail_title_text">Your Info</string>
     <string name="detail_go_back_btn_text">Back</string>
+    <string name="input_error_text">Fill all the details</string>
 
 </resources>

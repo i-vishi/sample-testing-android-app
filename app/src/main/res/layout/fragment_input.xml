@@ -101,6 +101,20 @@
             android:inputType="textMultiLine"
             android:maxLines="4" />
 
+        <TextView
+            android:id="@+id/input_error_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:drawableLeft="@drawable/ic_error_outline_24"
+            android:drawablePadding="8dp"
+            android:drawableTint="#FF0000"
+            android:fontFamily="serif"
+            android:gravity="start|fill_vertical"
+            android:text="@string/input_error_text"
+            android:textAlignment="textStart"
+            android:textColor="#FF0000" />
+
         <Button
             android:id="@+id/input_submit_btn"
             android:layout_width="match_parent"
