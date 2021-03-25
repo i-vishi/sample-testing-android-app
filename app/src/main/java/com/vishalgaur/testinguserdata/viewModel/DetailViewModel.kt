@@ -18,14 +18,22 @@ class DetailViewModel : ViewModel() {
     private val _userBio = MutableLiveData<String>()
     val userBio: LiveData<String> get() = _userBio
 
-    fun submitData(name: String, email: String, mob: String, bio: String) {
+    fun submitData(name: String, email: String, phone: String, bio: String): String {
+        var error = "ERROR"
         _userName.value = name
-        if (isEmailValid(email)) {
+        if (isEmailValid(email) && isPhoneValid(phone)) {
             _userEmail.value = email
+        } else {
+            error += "_EMAIL"
         }
-        if (isPhoneValid(mob)) {
-            _userPhone.value = mob
+
+        if (isPhoneValid(phone)) {
+            _userPhone.value = phone
+        } else {
+            error += "_PHONE"
         }
         _userBio.value = bio
+
+        return error
     }
 }
