@@ -1,8 +1,11 @@
 package com.vishalgaur.testinguserdata.viewModel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+
+private const val TAG = "DetailViewModel"
 
 class DetailViewModel : ViewModel() {
 
@@ -21,7 +24,7 @@ class DetailViewModel : ViewModel() {
     fun submitData(name: String, email: String, phone: String, bio: String): String {
         var error = "ERROR"
         _userName.value = name
-        if (isEmailValid(email) && isPhoneValid(phone)) {
+        if (isEmailValid(email)) {
             _userEmail.value = email
         } else {
             error += "_EMAIL"
@@ -33,7 +36,7 @@ class DetailViewModel : ViewModel() {
             error += "_PHONE"
         }
         _userBio.value = bio
-
+        Log.d(TAG, error)
         return error
     }
 }
