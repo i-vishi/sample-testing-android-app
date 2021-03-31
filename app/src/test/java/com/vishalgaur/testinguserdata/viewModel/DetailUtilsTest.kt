@@ -28,8 +28,8 @@ class DetailUtilsTest {
 
     @Test
     fun checkEmail_valid_returnsTrue() {
-        val email1 = "vishalgaur@google.com"
-        val email2 = "vishal123@gmail.com"
+        val email1 = "    vishalgaur@google.com"
+        val email2 = "vishal123@gmail.com     "
         val email3 = "rr.vishalgaur@gmail.com"
         val result1 = isEmailValid(email1)
         val result2 = isEmailValid(email2)
@@ -51,7 +51,7 @@ class DetailUtilsTest {
     @Test
     fun checkPhone_invalid_returnsFalse() {
         val phone1 = "1968743574694865"
-        val phone2 = "1111"
+        val phone2 = "  1111  "
         val phone3 = "2454678910"
         val result1 = isPhoneValid(phone1)
         val result2 = isPhoneValid(phone2)
@@ -65,8 +65,8 @@ class DetailUtilsTest {
     @Test
     fun checkPhone_valid_returnsTrue() {
         val phone1 = "9876543210"
-        val phone2 = "6985741526"
-        val phone3 = "8989895858"
+        val phone2 = "    6985741526"
+        val phone3 = "8989895858   "
         val result1 = isPhoneValid(phone1)
         val result2 = isPhoneValid(phone2)
         val result3 = isPhoneValid(phone3)
