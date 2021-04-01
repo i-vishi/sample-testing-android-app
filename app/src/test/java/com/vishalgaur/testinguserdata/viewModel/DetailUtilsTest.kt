@@ -29,7 +29,7 @@ class DetailUtilsTest {
     @Test
     fun checkEmail_valid_returnsTrue() {
         val email1 = "    vishalgaur@google.com"
-        val email2 = "vishal123@gmail.com     "
+        val email2 = "vishal123@gmail.co.in     "
         val email3 = "rr.vishalgaur@gmail.com"
         val result1 = isEmailValid(email1)
         val result2 = isEmailValid(email2)
