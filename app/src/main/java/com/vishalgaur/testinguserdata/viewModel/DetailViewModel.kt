@@ -22,21 +22,19 @@ class DetailViewModel : ViewModel() {
     val userBio: LiveData<String> get() = _userBio
 
     fun submitData(name: String, email: String, phone: String, bio: String): String {
-        var error = "ERROR"
-        _userName.value = name
-        if (isEmailValid(email)) {
-            _userEmail.value = email
-        } else {
-            error += "_EMAIL"
+        var err = "ERROR"
+        if (!isEmailValid(email)) {
+            err += "_EMAIL"
         }
-
-        if (isPhoneValid(phone)) {
-            _userPhone.value = phone
-        } else {
-            error += "_PHONE"
+        if (!isPhoneValid(phone)) {
+            err += "_PHONE"
         }
-        _userBio.value = bio
-        Log.d(TAG, error)
-        return error
+        return if (err === "ERROR") {
+            _userName.value = name.trim()
+            _userEmail.value = email.trim()
+            _userPhone.value = phone.trim()
+            _userBio.value = bio.trim()
+            "NO_$err"
+        } else err
     }
 }

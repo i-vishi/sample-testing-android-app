@@ -1,5 +1,7 @@
-package com.vishalgaur.testinguserdata.viewModel
+package com.vishalgaur.testinguserdata
 
+import com.vishalgaur.testinguserdata.viewModel.isEmailValid
+import com.vishalgaur.testinguserdata.viewModel.isPhoneValid
 import org.junit.Assert.*
 import org.junit.Test
 

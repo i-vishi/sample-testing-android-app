@@ -48,12 +48,12 @@ class InputFragment : Fragment() {
             binding.inputErrorTextView.isVisible = true
         } else {
             when (viewModel.submitData(name, email, mob, bio)) {
-                "ERROR" -> {
+                "NO_ERROR" -> {
                     setEditTextsError()
                     findNavController().navigate(R.id.showDetailScreen)
                 }
-                "ERROR_PHONE" -> setEditTextsError(mobError = MOB_ERROR)
                 "ERROR_EMAIL" -> setEditTextsError(emailError = EMAIL_ERROR)
+                "ERROR_PHONE" -> setEditTextsError(mobError = MOB_ERROR)
                 "ERROR_EMAIL_PHONE" -> setEditTextsError(EMAIL_ERROR, MOB_ERROR)
             }
         }

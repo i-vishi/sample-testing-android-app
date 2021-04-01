@@ -123,6 +123,7 @@ class InputFragmentTest {
             .check(matches(not(hasErrorText(`is`("")))))
         onView(withId(R.id.input_error_text_view))
             .check(matches(withEffectiveVisibility(Visibility.GONE)))
+        assertEquals(navController.currentDestination?.id, R.id.inputFragment)
     }
 
     @Test
@@ -140,6 +141,7 @@ class InputFragmentTest {
             .check(matches(hasErrorText(`is`("Enter valid mobile number!"))))
         onView(withId(R.id.input_error_text_view))
             .check(matches(withEffectiveVisibility(Visibility.GONE)))
+        assertEquals(navController.currentDestination?.id, R.id.inputFragment)
     }
 
     @Test
@@ -157,6 +159,7 @@ class InputFragmentTest {
             .check(matches(hasErrorText(`is`("Enter valid mobile number!"))))
         onView(withId(R.id.input_error_text_view))
             .check(matches(withEffectiveVisibility(Visibility.GONE)))
+        assertEquals(navController.currentDestination?.id, R.id.inputFragment)
     }
 
     @After
