@@ -9,7 +9,6 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import java.util.regex.Pattern.matches
 
 @RunWith(AndroidJUnit4::class)
 class DetailViewModelTest {
@@ -42,5 +41,53 @@ class DetailViewModelTest {
         assertThat(emailValue, `is`("vishal@mail.com"))
         assertThat(mobValue, `is`("7056897878"))
         assertThat(bioValue, `is`("iweurhfgw roirhf \neogiuehri  oisfe."))
+    }
+
+    @Test
+    fun submitData_invalidEmail_returnsEmailError() {
+        val name = "Vishal"
+        val email = "   vishal@mailcom "
+        val mob = "  7056897878"
+        val bio = "iweurhfgw roirhf \neogiuehri  oisfe."
+
+        val result = detailViewModel.submitData(name, email, mob, bio)
+
+        assertThat(result, `is`("ERROR_EMAIL"))
+        assertThat(detailViewModel.userName.value, `is`(nullValue()))
+        assertThat(detailViewModel.userEmail.value, `is`(nullValue()))
+        assertThat(detailViewModel.userPhone.value, `is`(nullValue()))
+        assertThat(detailViewModel.userBio.value, `is`(nullValue()))
+    }
+
+    @Test
+    fun submitData_invalidMobile_returnsMobileError() {
+        val name = "Vishal"
+        val email = "   vishal@mail.com "
+        val mob = "  705689787   "
+        val bio = "     iweurhfgw roirhf \neogiuehri  oisfe       ."
+
+        val result = detailViewModel.submitData(name, email, mob, bio)
+
+        assertThat(result, `is`("ERROR_PHONE"))
+        assertThat(detailViewModel.userName.value, `is`(nullValue()))
+        assertThat(detailViewModel.userEmail.value, `is`(nullValue()))
+        assertThat(detailViewModel.userPhone.value, `is`(nullValue()))
+        assertThat(detailViewModel.userBio.value, `is`(nullValue()))
+    }
+
+    @Test
+    fun submitData_invalidEmailAndMobile_returnsBothError() {
+        val name = "Vishal"
+        val email = "   vishalmail.com "
+        val mob = "  705689787   "
+        val bio = "     iweurhfgw roirhf \neogiuehri  oisfe       ."
+
+        val result = detailViewModel.submitData(name, email, mob, bio)
+
+        assertThat(result, `is`("ERROR_EMAIL_PHONE"))
+        assertThat(detailViewModel.userName.value, `is`(nullValue()))
+        assertThat(detailViewModel.userEmail.value, `is`(nullValue()))
+        assertThat(detailViewModel.userPhone.value, `is`(nullValue()))
+        assertThat(detailViewModel.userBio.value, `is`(nullValue()))
     }
 }
