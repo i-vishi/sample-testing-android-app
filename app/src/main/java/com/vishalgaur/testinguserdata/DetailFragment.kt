@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.VisibleForTesting
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.vishalgaur.testinguserdata.databinding.FragmentDetailBinding
@@ -14,7 +15,8 @@ class DetailFragment : Fragment() {
 
     private lateinit var binding: FragmentDetailBinding
 
-    private val viewModel: DetailViewModel by activityViewModels()
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    val viewModel: DetailViewModel by activityViewModels()
 
     override fun onCreateView(
 		inflater: LayoutInflater, container: ViewGroup?,
