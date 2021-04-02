@@ -19,11 +19,17 @@ class DetailFragment : Fragment() {
     val viewModel: DetailViewModel by activityViewModels()
 
     override fun onCreateView(
-		inflater: LayoutInflater, container: ViewGroup?,
-		savedInstanceState: Bundle?
-	): View? {
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
         binding = FragmentDetailBinding.inflate(inflater, container, false)
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         binding.detailName.text = viewModel.userName.value
         binding.detailEmail.text = viewModel.userEmail.value
@@ -33,7 +39,6 @@ class DetailFragment : Fragment() {
         binding.detailGoBackBtn.setOnClickListener {
             findNavController().navigateUp()
         }
-        return binding.root
     }
 
 }

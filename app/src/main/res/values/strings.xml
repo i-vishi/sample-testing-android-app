@@ -19,5 +19,6 @@
     <string name="detail_title_text">Your Info</string>
     <string name="detail_go_back_btn_text">Back</string>
     <string name="input_error_text">Fill all the details</string>
+    <string name="submit_activity">Submit - Activity</string>
 
 </resources>
