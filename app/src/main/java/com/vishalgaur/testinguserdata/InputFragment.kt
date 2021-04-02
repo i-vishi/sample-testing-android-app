@@ -1,13 +1,12 @@
 package com.vishalgaur.testinguserdata
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.findNavController
 import com.vishalgaur.testinguserdata.databinding.FragmentInputBinding
 import com.vishalgaur.testinguserdata.viewModel.DetailViewModel
 import com.vishalgaur.testinguserdata.viewModel.EMAIL_ERROR
@@ -35,7 +34,7 @@ class InputFragment : Fragment() {
         }
 
         // remove error text by default
-        binding.inputErrorTextView.isVisible = false
+        binding.inputErrorTextView.visibility = View.GONE
     }
 
     private fun onSubmit() {
@@ -45,12 +44,22 @@ class InputFragment : Fragment() {
         val bio = binding.inputBioEditText.text.toString()
 
         if (name.isEmpty() || email.isEmpty() || mob.isEmpty() || bio.isEmpty()) {
-            binding.inputErrorTextView.isVisible = true
+            binding.inputErrorTextView.visibility = View.VISIBLE
         } else {
             when (viewModel.submitData(name, email, mob, bio)) {
                 "NO_ERROR" -> {
                     setEditTextsError()
-                    findNavController().navigate(R.id.showDetailScreen)
+
+                    // lauch detail fragment
+//                    findNavController().navigate(R.id.showDetailScreen)
+
+                    //launch detail activity
+                    val intent = Intent(activity, DetailActivity::class.java)
+                        .putExtra("userName", viewModel.userName.value)
+                        .putExtra("userEmail", viewModel.userEmail.value)
+                        .putExtra("userMob", viewModel.userPhone.value)
+                        .putExtra("userBio", viewModel.userBio.value)
+                    startActivity(intent)
                 }
                 "ERROR_EMAIL" -> setEditTextsError(emailError = EMAIL_ERROR)
                 "ERROR_PHONE" -> setEditTextsError(mobError = MOB_ERROR)
