@@ -27,12 +27,10 @@ class DetailActivityTest {
 
 	@Test
 	fun infoIsSet() {
-
 		val name = "Vishal"
 		val email = "vishal@mail.com"
 		val mob = "7056897878"
 		val bio = "iweurhfgw roirhf \neogiuehri  oisfe."
-
 		val argBundle = bundleOf(
 				"userName" to name,
 				"userEmail" to email,
